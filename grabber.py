@@ -71,19 +71,18 @@ class ProxyScraper:
         self.semaphore = Semaphore(max_concurrent)
         self.proxy_pattern = re.compile(r"\d{1,3}(?:\.\d{1,3}){3}(?::\d{1,5})?")
         self.headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/91.0.4472.124"}
-        self.ip_info_cache = {}  # Cache IP geolocation results
+        self.ip_info_cache = {} 
         self.output_dir = output_dir
         self.save_format = save_format
         self.verbose = verbose
         self.check_anonymity = check_anonymity
         self.max_proxies = max_proxies
-        self.real_ip = None  # Will be set during initialization
+        self.real_ip = None  
         
-        # Create output directory if it doesn't exist
+       
         os.makedirs(self.output_dir, exist_ok=True)
 
     async def get_real_ip(self):
-        """Get our real IP address"""
         try:
             async with aiohttp.ClientSession() as session:
                 async with session.get("http://ip-api.com/json/") as response:
@@ -102,12 +101,10 @@ class ProxyScraper:
         
         try:
             async with aiohttp.ClientSession(connector=connector, connector_owner=False) as session:
-                # Choose test URL based on proxy type
                 test_urls = self.socks5_test_urls if proxy_type == 'socks5' else [self.test_url]
                 
                 for test_url in test_urls:
                     try:
-                        # Test if proxy works
                         async with session.get(
                             test_url, 
                             proxy=proxy_url, 

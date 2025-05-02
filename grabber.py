@@ -27,7 +27,7 @@ class ProxyScraper:
                  verbose=False, check_anonymity=True, max_proxies=None):
         self.apis = {
             'http': [
-                 "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt",
+                 "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/https.txt",
                 "https://raw.githubusercontent.com/r00tee/Proxy-List/refs/heads/main/Https.txt",
                 "https://raw.githubusercontent.com/proxifly/free-proxy-list/main/proxies/protocols/http/data.txt",
                 "https://raw.githubusercontent.com/mmpx12/proxy-list/refs/heads/master/http.txt",

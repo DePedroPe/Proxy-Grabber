@@ -1,2 +1,2 @@
 # Proxy-Grabber
-Simpe proxy grabber writen on python
+Simpe proxy grabber writen on python.
